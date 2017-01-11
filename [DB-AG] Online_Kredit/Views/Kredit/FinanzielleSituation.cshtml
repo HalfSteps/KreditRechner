@@ -23,7 +23,7 @@
             </div>
             <hr />
             @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            <div class="row">
+            <div class="row" onfocus="this.select();" onmouseup="return false;">
                 <div class="col-lg-offset-1 col-md-offset-1 col-lg-3 col-md-3" style="text-align: right">
                     @Html.LabelFor(model => model.MonatsEinkommenNetto, htmlAttributes: new { @class = "control-label" })
                 </div>
@@ -32,11 +32,11 @@
                     @Html.ValidationMessageFor(model => model.MonatsEinkommenNetto, "", new { @class = "text-danger" })
                 </div>
             </div>
-            <div class="row">
+            <div class="row" onfocus="this.select();" onmouseup="return false;">
                 <div class="col-lg-offset-1 col-md-offset-1 col-lg-3 col-md-3" style="text-align: right">
                     @Html.LabelFor(model => model.Wohnkosten, htmlAttributes: new { @class = "control-label" })
                 </div>
-                <div class="col-lg-6 col-md-6">
+                <div class="col-lg-6 col-md-6" >
                     @Html.EditorFor(model => model.Wohnkosten, new { htmlAttributes = new { @class = "form-control", placeholder = "0" } })
                     @Html.ValidationMessageFor(model => model.Wohnkosten, "", new { @class = "text-danger" })
                 </div>

@@ -26,6 +26,10 @@ namespace _DB_AG__Online_Kredit.Controllers
             Response.Cookies.Add(new HttpCookie("zsmid", "true"));
 
             BusinessLogic.Kunde aktKunde = BusinessLogic.KreditVerwaltung.KundeLaden(model.ID_Kunde);
+            BusinessLogic.Ort aktKundenOrt = BusinessLogic.KreditVerwaltung.OrtDatenLaden(model.ID_Kunde);
+
+            model.Betrag = (int)aktKunde.KreditWunsch.Betrag;
+            model.Laufzeit = aktKunde.KreditWunsch.Laufzeit;
 
             model.Betrag = (int)aktKunde.KreditWunsch.Betrag;
             model.Laufzeit = aktKunde.KreditWunsch.Laufzeit;
@@ -33,7 +37,7 @@ namespace _DB_AG__Online_Kredit.Controllers
             model.MonatsNettoEinkommen = (double)aktKunde.FinanzielleSituation.MonatsEinkommenNetto.Value;
             model.Wohnkosten = (double)aktKunde.FinanzielleSituation.Wohnkosten.Value;
             model.EinkuenfteAlimenteUnterhalt = (double)aktKunde.FinanzielleSituation.EinkuenfteAlimenteUnterhalt.Value;
-            model.EinkuenfteAlimenteUnterhalt = (double)aktKunde.FinanzielleSituation.AusgabenAlimenteUnterhalt.Value;
+            model.AusgabenAlimenteUnterhalt = (double)aktKunde.FinanzielleSituation.AusgabenAlimenteUnterhalt.Value;
             model.Raten = (double)aktKunde.FinanzielleSituation.Raten.Value;
 
             model.Geschlecht = aktKunde.Geschlecht == "m" ? "Herr" : "Frau";
@@ -55,9 +59,9 @@ namespace _DB_AG__Online_Kredit.Controllers
 
             model.Strasse = aktKunde.KontaktDaten?.Strasse;
             model.Hausnummer = aktKunde.KontaktDaten?.Hausnummer;
-            model.Land = aktKunde.KontaktDaten?.Ort?.Land?.Bezeichnung;
-            model.Ort = aktKunde.KontaktDaten?.Ort?.Bezeichnung;
-            model.PLZ = aktKunde.KontaktDaten?.Ort?.PLZ;
+            model.Land = aktKundenOrt.FKLand;
+            model.Ort = aktKundenOrt.Bezeichnung;
+            model.PLZ = aktKundenOrt.PLZ;
             model.EMail = aktKunde.KontaktDaten?.EMail;
             model.Telefonnummer = aktKunde.KontaktDaten?.Telefonnummer;
 

@@ -479,7 +479,6 @@ namespace _DB_AG__Online_Kredit.Controllers
 
             Kunde aktKunde = KreditVerwaltung.KundeLaden(model.ID_Kunde);
             Ort aktKundenOrt = KreditVerwaltung.OrtDatenLaden(model.ID_Kunde);
-            Land aktKundenLand = KreditVerwaltung.LaenderLaden(model.ID_Kunde);
 
             model.Betrag = (int)aktKunde.KreditWunsch.Betrag;
             model.Laufzeit = aktKunde.KreditWunsch.Laufzeit;
@@ -509,7 +508,7 @@ namespace _DB_AG__Online_Kredit.Controllers
 
             model.Strasse = aktKunde.KontaktDaten?.Strasse;
             model.Hausnummer = aktKunde.KontaktDaten?.Hausnummer;
-            model.Land = aktKundenOrt.La
+            model.Land = aktKundenOrt.FKLand;
             model.Ort = aktKundenOrt.Bezeichnung;
             model.PLZ = aktKundenOrt.PLZ;
             model.EMail = aktKunde.KontaktDaten?.EMail;

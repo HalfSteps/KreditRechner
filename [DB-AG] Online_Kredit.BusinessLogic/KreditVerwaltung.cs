@@ -626,10 +626,12 @@ namespace _DB_AG__Online_Kredit.BusinessLogic
 
                     Kunde aktKunde = context.AlleKunden.Where(x => x.ID == idKunde).FirstOrDefault();
 
-                    if (aktKunde.KontaktDaten != null && aktKunde.KontaktDaten.Ort != null)
+                    if (aktKunde.KontaktDaten != null || aktKunde.KontaktDaten.Ort != null)
                     {
                         if (aktKunde.KontaktDaten != null)
                         {
+                            Debug.WriteLine("KontaktDatenSpeichern: KontaktDaten erneut");
+
                             aktKunde.KontaktDaten.Strasse = strasse;
                             aktKunde.KontaktDaten.Hausnummer = hausnummer;
                             aktKunde.KontaktDaten.EMail = mail;
@@ -639,6 +641,8 @@ namespace _DB_AG__Online_Kredit.BusinessLogic
 
                         if (aktKunde.KontaktDaten.Ort != null)
                         {
+                            Debug.WriteLine("KontaktDatenSpeichern: KontaktDaten.Ort erneut");
+
                             aktKunde.KontaktDaten.Ort.Bezeichnung = ort;
                             aktKunde.KontaktDaten.Ort.PLZ = idplz;
                             //aktKunde.KontaktDaten.Ort.FKLand = idland;
@@ -969,33 +973,33 @@ namespace _DB_AG__Online_Kredit.BusinessLogic
             return (kontaktOrt);
         }
 
-        public static Ort LandDatenLaden(int id)
-        {
-            Debug.WriteLine("KreditVerwaltung: LandDatenLaden");
-            Debug.Indent();
+        //public static Ort LandDatenLaden(int id)
+        //{
+        //    Debug.WriteLine("KreditVerwaltung: LandDatenLaden");
+        //    Debug.Indent();
 
-            Land kontaktLand = null;
+        //    Land kontaktLand = null;
 
-            try
-            {
-                using (var context = new dbKreditRechnerEntities())
-                {
-                    kontaktLand = context.AlleLänder.Where(x => x.ID == id).FirstOrDefault();
-                    Debug.WriteLine("KontaktOrt geladen!");
-                }
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine("Fehler in OrtDatenLaden");
-                Debug.Indent();
-                Debug.WriteLine(ex.Message);
-                Debug.Unindent();
-                Debugger.Break();
-            }
+        //    try
+        //    {
+        //        using (var context = new dbKreditRechnerEntities())
+        //        {
+        //            kontaktLand = context.AlleLänder.Where(x => x.ID == id).FirstOrDefault();
+        //            Debug.WriteLine("KontaktOrt geladen!");
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        Debug.WriteLine("Fehler in OrtDatenLaden");
+        //        Debug.Indent();
+        //        Debug.WriteLine(ex.Message);
+        //        Debug.Unindent();
+        //        Debugger.Break();
+        //    }
 
-            Debug.Unindent();
-            return (kontaktOrt);
-        }
+        //    Debug.Unindent();
+        //    return (kontaktOrt);
+        //}
 
         #endregion
     }
