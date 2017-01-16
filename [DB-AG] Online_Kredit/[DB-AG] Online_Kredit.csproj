@@ -470,6 +470,7 @@
     <Content Include="Content\css\images\header.png" />
     <Content Include="Content\css\images\img-back.png" />
     <Content Include="Content\css\images\img-mid.png" />
+    <Content Include="Content\css\images\kids-challenge.png" />
     <Content Include="Content\css\images\logo%402x.png" />
     <Content Include="Content\css\images\logo.png" />
     <Content Include="Content\css\images\m-header-shell.png" />
@@ -482,6 +483,7 @@
     <Content Include="Content\css\images\navigation%402x.png" />
     <Content Include="Content\css\images\pagination%402x.png" />
     <Content Include="Content\css\images\pagination.png" />
+    <Content Include="Content\css\images\Parenting-Family.png" />
     <Content Include="Content\css\images\partners1.png" />
     <Content Include="Content\css\images\partners2.png" />
     <Content Include="Content\css\images\partners3.png" />
@@ -493,6 +495,7 @@
     <Content Include="Content\css\images\slider-h3-border.png" />
     <Content Include="Content\css\images\socials-pattern.png" />
     <Content Include="Content\css\images\socials.png" />
+    <Content Include="Content\css\images\Sparbuch.png" />
     <Content Include="Content\css\images\t-header-shell.png" />
     <Content Include="Content\css\images\t-section.png" />
     <Content Include="Content\css\ion.rangeSlider.css" />
